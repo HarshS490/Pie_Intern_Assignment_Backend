@@ -116,6 +116,8 @@ Errors:
 
 - `401 Unauthorized` if no valid token.
 
+---
+## Additional Routes
 
 ### 4. GET /interactions/video/:id
 Retrieves count of interactions (likes, views, comments) on a video.
