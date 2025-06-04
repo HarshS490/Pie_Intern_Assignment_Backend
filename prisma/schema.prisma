@@ -30,19 +30,20 @@ model Video {
   videoUrl    String
 
   userId       String
-  User         User          @relation("userToVideos", fields: [userId], references: [id])
-  metaItem     MetaItem?
+  user         User          @relation("userToVideos", fields: [userId], references: [id])
+  metadata     MetaData?
   interactions Interaction[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
-model MetaItem {
-  id      String @id @default(cuid()) @db.VarChar(30)
-  label   String
-  videoId String @unique
-  video   Video  @relation(fields: [videoId], references: [id])
+model MetaData {
+  id           String @id @default(cuid()) @db.VarChar(30)
+  label        String
+  thumbnailUrl String
+  videoId      String @unique
+  video        Video  @relation(fields: [videoId], references: [id])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -66,6 +67,7 @@ model Interaction {
   userId  String
   user    User            @relation(fields: [userId], references: [id])
 
-  @@unique([userId, videoId, type])
+  createdAt DateTime @default(now())
+
   @@index([videoId])
 }

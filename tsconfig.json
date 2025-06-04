@@ -4,12 +4,13 @@
       "outDir": "dist",
       "lib": ["ES2023"],
       "target": "ES2022",
-      "module": "commonjs",
+      "module": "Node16",
       "strict": true,
-      "moduleResolution": "node",
+      "moduleResolution": "Node16",
       "skipLibCheck": true,
       "esModuleInterop": true,
-      "types": ["node"]
+      "types": ["node"],
+      "typeRoots": ["./node_modules/@types"]
     },
     "include": ["src"],
     "exclude": ["node_modules","READEME.md",".gitignore"]
